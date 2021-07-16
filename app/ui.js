@@ -27,11 +27,21 @@ const onChangePwFailure = function () {
   console.log('oops, in catch')
 }
 
+const onSignOutSuccess = function () {
+  $('#message-field').text('you signed out')
+}
+
+const onSignOutFailure = function () {
+  $('#message-field').text('sign out failure')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,
   onSignInFailure,
   onChangePwSuccess,
-  onChangePwFailure
+  onChangePwFailure,
+  onSignOutSuccess,
+  onSignOutFailure
 }
