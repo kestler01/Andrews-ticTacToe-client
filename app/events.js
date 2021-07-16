@@ -22,7 +22,19 @@ const onSignIn = function (event) {
     .then(ui.onSignInSuccess)
     .catch(ui.onSignInFailure)
 }
+const onChangePw = function (event) {
+  event.preventDefault()
+  const formDataRaw = event.target
+  console.log(formDataRaw)
+  const formDataObj = getFormFields(formDataRaw)
+  console.log(formDataObj)
+  api.changePw(formDataObj)
+    .then(ui.onChangePwSuccess)
+    .catch(ui.onChangePwFailure)
+}
+
 module.exports = {
   onSignUp,
-  onSignIn
+  onSignIn,
+  onChangePw
 }

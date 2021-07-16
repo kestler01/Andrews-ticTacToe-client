@@ -18,9 +18,20 @@ const onSignInFailure = function () {
   $('message-field').text('sign in failure')
 }
 
+const onChangePwSuccess = function () {
+  $('message-field').text('password changed')
+}
+
+const onChangePwFailure = function () {
+  $('message-field').text('password change failed')
+  console.log('oops, in catch')
+}
+
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
   onSignInSuccess,
-  onSignInFailure
+  onSignInFailure,
+  onChangePwSuccess,
+  onChangePwFailure
 }
