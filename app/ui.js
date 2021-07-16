@@ -15,15 +15,15 @@ const onSignInSuccess = function (response) {
 }
 
 const onSignInFailure = function () {
-  $('message-field').text('sign in failure')
+  $('#message-field').text('sign in failure')
 }
 
 const onChangePwSuccess = function () {
-  $('message-field').text('password changed')
+  $('#message-field').text('password changed')
 }
 
 const onChangePwFailure = function () {
-  $('message-field').text('password change failed')
+  $('#message-field').text('password change failed')
   console.log('oops, in catch')
 }
 
