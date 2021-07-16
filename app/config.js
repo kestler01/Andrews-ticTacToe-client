@@ -1,6 +1,6 @@
 let apiUrl
 const apiUrls = {
-  production: '<replace-with-heroku-url>',
+  production: 'https://tic-tac-toe-api-production.herokuapp.com',
   development: 'http://localhost:4741'
 }
 
