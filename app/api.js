@@ -9,7 +9,16 @@ const signUp = function (dataObj) {
   })
 }
 
-module.exports = {
-  signUp
+const signIn = function(dataObj) {
+  console.log(dataObj)
+  return $.ajax({
+    url: config.apiUrl + '/sign-in',
+    method: 'post',
+    data: dataObj
+  })
+}
 
+module.exports = {
+  signUp,
+  signIn
 }
