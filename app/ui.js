@@ -34,7 +34,22 @@ const onSignOutSuccess = function () {
 const onSignOutFailure = function () {
   $('#message-field').text('sign out failure')
 }
+const onNewGameSuccess = function (response) {
+  $('#message-field').text('sign in successful')
+  store.game = response.game
+  store.p1turn = true
+  console.log(response, store.game._id)
+}
 
+const onNewGameFailure = function () {
+  $('#message-field').text('new game failure')
+  console.log('oops, in catch')
+}
+const onGameMoveSuccess = function () {
+  store.p1turn = !store.p1turn
+}
+const onGameMoveFailure = function () {
+}
 module.exports = {
   onSignUpSuccess,
   onSignUpFailure,
@@ -43,5 +58,9 @@ module.exports = {
   onChangePwSuccess,
   onChangePwFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onNewGameSuccess,
+  onNewGameFailure,
+  onGameMoveSuccess,
+  onGameMoveFailure
 }

@@ -1,5 +1,6 @@
 const getFormFields = require('./../lib/get-form-fields.js')
 const api = require('./api.js')
+const store = require('./store.js')
 const ui = require('./ui.js')
 
 const onSignUp = function (event) {
@@ -39,9 +40,33 @@ const onSignOut = function () {
     .catch(ui.onSignOutFailure)
 }
 
+const onNewGame = function () {
+  api.newGame()
+    .then(ui.onNewGameSuccess)
+    .catch(ui.onNewGameFailure)
+}
+const onGameMove = function (event) {
+  let moveValue
+  if (store.p1turn === true) {
+    moveValue = 'x'
+  } else { moveValue = 'o' }
+  const moveDataRaw = event.target
+  console.log(moveDataRaw)
+  const moveData = {
+    index: $(moveDataRaw).attr('data-cell-index'),
+    value: moveValue,
+    over: false
+  }
+  api.gameMove(moveData)
+    .then(ui.onGameMoveSuccess)
+    .catch(ui.onGameMoveFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePw,
-  onSignOut
+  onSignOut,
+  onNewGame,
+  onGameMove
 }
