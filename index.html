@@ -12,45 +12,132 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
-      <p id="message-field"></p>
-      <div>
-        <form id="sign-up">
-          <legend>Sign up</legend>
-          <label>Email</label>
-          <input name="credentials[email]" type="email" >
-          <label>Password</label>
-          <input name="credentials[password]" type="password">
-          <label>Confirm Password</label>
-          <input name="credentials[password_confirmation]" type="password">
-          <input type="submit" value="Sign Up">
-        </form>
-      </div>
+      <nav class="conatiner row">
 
-      <div>
-        <form id="sign-in">
-          <legend>Sign In</legend>
-          <label>Email</label>
-          <input name="credentials[email]" type="email">
-          <label>Password</label>
-          <input name="credentials[password]" type="password">
-          <input type="submit" value="Sign In">
-        </form>
-      </div>
+        <!-- button for opening account form modal -->
+        <button type="button" id="sign-up-button" class="col btn btn-primary" data-bs-toggle="modal" data-bs-target="#sign-up-form-modal">Make an Account</button>
 
-      <div>
-        <form id="change-password">
-          <legend>Change Password</legend>
-          <label>Old Password</label>
-          <input name="passwords[old]" type="password">
-          <label>New Password</label>
-          <input name="passwords[new]" type="password">
-          <input type="submit" value="Change">
-        </form>
+        <!-- button for opening sign in form modal -->
+        <button type="button" id="sign-in-button" class="col btn btn-primary" data-bs-toggle="modal" data-bs-target="#sign-in-form-modal"> Sign In</button>
+
+        <!-- button for opening password change form modal -->
+        <button type="button" id="change-pw-button" class="col btn btn-primary" data-bs-toggle="modal" data-bs-target="#pw-change-form-modal"> Change Password</button>
+
+        <button id="sign-out-button" class="col btn btn-primary">Sign out</button>
+      </nav>
+              <h2>Welcome to Andrew's Tick Tac Toe</h2>
+      <p id="message-field">Please Make an Account or Sign In to Continue</p>
+      <!-- start login vs sign up promt -->
+
+      <!-- end of start promt -->
+
+      <!-- sign up form modal -->
+      <div class="modal fade" id="sign-up-form-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" >Make an Account</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="sign-up">
+              <div class="modal-body">
+                <div id="sign-up-form-message"></div>
+                <div class="container row">
+                  <label class="col-4">Email</label>
+                  <input class="col-9" name="credentials[email]" type="email" >
+                  <label class="col-4">Password</label>
+                  <input class="col-9" name="credentials[password]" type="password">
+                  <label class="col-6">Confirm Password</label>
+                  <input class="col-9" name="credentials[password_confirmation]" type="password">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+                <button id="sign-up-flip-in-button" class="btn btn-primary" data-bs-target="#sign-in-form-modal" data-bs-toggle="modal"
+                  data-bs-dismiss="modal">sign in</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
-      <button id="sign-out">Sign out</button>
-      <button id="new-game">NEW GAME</button>
-      <section id="game-board">
+      <!-- End of sign up modal -->
+
+
+      <!-- Sign in form modal-->
+      <div class="modal fade" id="sign-in-form-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" >Sign In</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="sign-in">
+              <div class="modal-body">
+                <div class="container row">
+                  <label class="col-4 ">Email</label>
+                  <input class="col-9 " name="credentials[email]" type="email">
+                  <label class="col-4 ">Password</label>
+                  <input class="col-9 " name="credentials[password]" type="password">
+                </div>
+              </div>
+              <div class="modal-footer" >
+                <button type="submit" class="btn btn-primary" >Sign In</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- End of sign in modal -->
+
+      <!-- Start of password change form modal -->
+      <div class="modal fade" id="pw-change-form-modal" tabindex="-1" aria-labelledby="change password form" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="change-password">
+              <div class="modal-body row">
+                <div class="col-9" id="pw-change-message-field"></div>
+                <label class="col-6" >Old Password</label>
+                <input class="col-9" name="passwords[old]" type="password">
+                <label class="col-6" >New Password</label>
+                <input class="col-9" name="passwords[new]" type="password">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+               <button type="submit" class="btn btn-primary">Change Password</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- End of change pass word form modal -->
+
+      <!-- Start of pop up message field modal-->
+      <div class="modal fade" id="pop-up-message-field-modal" tabindex="-1" aria-labelledby="message" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="dynamic-modal-message-label">message</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p id="pop-up-message-field">message</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+        <!-- End of pop up message field modal-->
+
+      <button id="new-game-button">NEW GAME</button>
+      <section id="game-board" class="">
         <div class="container">
           <div class="row row-cols-3 h-100 w-100">
             <div data-cell-index="0" class="col-4 h-100 cell border-bottom border-end border-dark">0</div>

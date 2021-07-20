@@ -2,7 +2,8 @@
 // var example = require('./example');
 
 import 'bootstrap'
-
+// const bootstrap = require('bootstrap')
+// window.bootstrap = require('bootstrap/dist/js/bootstrap.bundle.js') // did not work
 // allows usage of new JS features
 require('babel-polyfill')
 

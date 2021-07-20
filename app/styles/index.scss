@@ -1,4 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
+
+
 #gameboard{
   background-color: gray;
   color: white;
@@ -7,6 +9,18 @@
   border-color: dark;
   border: 10px;
 }
-.cell{
-
+#change-pw-button{
+  display:none
+}
+#sign-out-button{
+  display:none
+}
+#new-game-button{
+  display:none
+}
+#game-board{
+  display:none
+}
+#sign-up-flip-in-button{
+  display:none
 }

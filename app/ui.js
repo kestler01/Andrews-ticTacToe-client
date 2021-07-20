@@ -1,54 +1,76 @@
 const store = require('./store.js')
+// const api = require('./api.js')
+const Modal = require('bootstrap').Modal
 
 const onSignUpSuccess = function () {
-  $('#message-field').text('sign up successful')
+  $('#sign-up-form-message').text('sign up successful, log in to continue')
+  $('#sign-up-flip-in-button').show()
 }
 
 const onSignUpFailure = function () {
-  $('#message-field').text('sign up failed, try again')
+  $('#sign-up-form-message').text('sign up failed, try again')
 }
 
 const onSignInSuccess = function (response) {
   $('#message-field').text('sign in successful')
+  $('#sign-up-button').hide()
+  $('#sign-in-button').hide()
+  $('#sign-out-button').show()
+  $('#change-pw-button').show()
+  $('#new-game-button').show()
+  $('#sign-in').trigger('reset')
   store.token = response.user.token
   console.log(response, store)
+  const myModal = new Modal($('#sign-in-form-modal'))
+  myModal._hideModal()
+  $('.modal-backdrop').hide() // janky but necessary modal close
 }
 
 const onSignInFailure = function () {
   $('#message-field').text('sign in failure')
+  $('#sign-in').trigger('reset')
 }
 
 const onChangePwSuccess = function () {
-  $('#message-field').text('password changed')
+  $('#pw-change-message-field').text('password updated')
 }
 
 const onChangePwFailure = function () {
-  $('#message-field').text('password change failed')
-  console.log('oops, in catch')
+  $('#change-password').trigger('reset')
+  $('#pw-change-message-field').text('password change failed')
 }
 
 const onSignOutSuccess = function () {
   $('#message-field').text('you signed out')
+  $('#sign-up-button').show()
+  $('#sign-in-button').show()
+  $('#sign-out-button').hide()
+  $('#change-pw-button').hide()
+  $('#new-game-button').hide()
+  $('#game-board').hide()
 }
 
 const onSignOutFailure = function () {
   $('#message-field').text('sign out failure')
 }
 const onNewGameSuccess = function (response) {
-  $('#message-field').text('sign in successful')
   store.game = response.game
   store.p1turn = true
-  console.log(response, store.game._id)
+  $('#game-board').show()
+  $('#message-field').text('')
 }
 
 const onNewGameFailure = function () {
-  $('#message-field').text('new game failure')
-  console.log('oops, in catch')
+  $('#message-field').text('please Log In to continue')
 }
-const onGameMoveSuccess = function () {
+const onGameMoveSuccess = function (response) {
   store.p1turn = !store.p1turn
+  store.game = response.game
+  console.log(store, store.game, response)
 }
-const onGameMoveFailure = function () {
+const onGameMoveFailure = function (response) {
+  $('#message-field').text('invalid move')
+  console.log('invalid move ', response)
 }
 module.exports = {
   onSignUpSuccess,
