@@ -122,36 +122,49 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="dynamic-modal-message-label">message</h5>
+              <h5 class="modal-title" id="dynamic-modal-message-label">Game Over</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              <p id="pop-up-message-field">message</p>
+              <p id="pop-up-message-field"></p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">View Board</button>
+              <button type="button" class="btn btn-secondary new-game-button" data-bs-dismiss="modal">New Game</button>
             </div>
           </div>
         </div>
       </div>
         <!-- End of pop up message field modal-->
 
-      <button id="new-game-button">NEW GAME</button>
+      <button class="new-game-button">New Game</button>
       <section id="game-board" class="">
+        <!-- <div id="player1Tray" class="container">
+          <div class="gamePiece X">X</div>
+          <div class="gamePiece X">X</div>
+          <div class="gamePiece X">X</div>
+          <div class="gamePiece X">X</div>
+          <div class="gamePiece X">X</div>
+        </div> -->
         <div class="container">
           <div class="row row-cols-3 h-100 w-100">
-            <div data-cell-index="0" class="col-4 h-100 cell border-bottom border-end border-dark">0</div>
-            <div data-cell-index="1" class="col-4 h-100 cell border-top-0 border-black border-dark">1</div>
-            <div data-cell-index="2" class="col-4 h-100 cell border-bottom border-start border-dark">2</div>
-            <div data-cell-index="3" class="col-4 h-100 cell border-bottom border-top border-dark">3</div>
-            <div data-cell-index="4" class="col-4 h-100 cell border border-dark">4</div>
-            <div data-cell-index="5" class="col-4 h-100 cell border-bottom border-top border-dark">5</div>
-            <div data-cell-index="6" class="col-4 h-100 cell border-top border-end border-dark">6</div>
-            <div data-cell-index="7" class="col-4 h-100 cell border-bottom-0 border-dark">7</div>
-            <div data-cell-index="8" class="col-4 h-100 cell border-top border-start border-dark">8</div>
+            <div data-cell-index="0" class="col-4 h-100 cell border-bottom border-end border-dark"></div>
+            <div data-cell-index="1" class="col-4 h-100 cell border-top-0 border-black border-dark"></div>
+            <div data-cell-index="2" class="col-4 h-100 cell border-bottom border-start border-dark"></div>
+            <div data-cell-index="3" class="col-4 h-100 cell border-bottom border-top border-dark"></div>
+            <div data-cell-index="4" class="col-4 h-100 cell border border-dark"></div>
+            <div data-cell-index="5" class="col-4 h-100 cell border-bottom border-top border-dark"></div>
+            <div data-cell-index="6" class="col-4 h-100 cell border-top border-end border-dark"></div>
+            <div data-cell-index="7" class="col-4 h-100 cell border-bottom-0 border-dark"></div>
+            <div data-cell-index="8" class="col-4 h-100 cell border-top border-start border-dark"></div>
           </div>
         </div>
-      </section>
+        <!-- <div id="player2Tray" class="container"> <div class="gamePiece X">X</div>
+        <div class="gamePiece X">O</div>
+        <div class="gamePiece X">O</div>
+        <div class="gamePiece X">O</div>
+        <div class="gamePiece X">O</div</div>
+      </section> -->
 
     </body>
 </html>

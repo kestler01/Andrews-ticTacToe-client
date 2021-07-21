@@ -1,3 +1,4 @@
+// import 'bootstrap'
 const store = require('./store.js')
 // const api = require('./api.js')
 const Modal = require('bootstrap').Modal
@@ -20,7 +21,11 @@ const onSignInSuccess = function (response) {
   $('#new-game-button').show()
   $('#sign-in').trigger('reset')
   store.token = response.user.token
-  console.log(response, store)
+  store.scores = {
+    player1: 0,
+    player2: 0
+  }
+  // console.log(response, store)
   const myModal = new Modal($('#sign-in-form-modal'))
   myModal._hideModal()
   $('.modal-backdrop').hide() // janky but necessary modal close
@@ -66,11 +71,26 @@ const onNewGameFailure = function () {
 const onGameMoveSuccess = function (response) {
   store.p1turn = !store.p1turn
   store.game = response.game
-  console.log(store, store.game, response)
+  $('#message-field').text('')
+  // console.log(store, store.game, response)
 }
 const onGameMoveFailure = function (response) {
-  $('#message-field').text('invalid move')
-  console.log('invalid move ', response)
+  $('#message-field').text(response)
+  // console.log('invalid move ', response)
+}
+const onGameMoveWin = function (player) {
+  jQuery.noConflict()
+  const myMessageModal = new Modal($('#pop-up-message-field-modal'))
+  console.log(myMessageModal)
+  myMessageModal.show()
+
+  if (player === 'x') {
+    store.scores.player1 += 1
+  } else {
+    store.scores.player2 += 1
+  }
+  $('#pop-up-message-field').text(player + ' WINS')
+  console.log(store.scores)
 }
 module.exports = {
   onSignUpSuccess,
@@ -84,5 +104,6 @@ module.exports = {
   onNewGameSuccess,
   onNewGameFailure,
   onGameMoveSuccess,
-  onGameMoveFailure
+  onGameMoveFailure,
+  onGameMoveWin
 }
