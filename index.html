@@ -12,24 +12,27 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <nav class="conatiner row">
+      <nav class="container  bg-secondary">
+        <div class="row">
 
-        <!-- button for opening account form modal -->
-        <button type="button" id="sign-up-button" class="col btn btn-primary" data-bs-toggle="modal" data-bs-target="#sign-up-form-modal">Make an Account</button>
+          <!-- button for opening account form modal -->
+          <button type="button" id="sign-up-button" class="col-4 btn btn-primary" data-bs-toggle="modal" data-bs-target="#sign-up-form-modal">Make an Account</button>
 
-        <!-- button for opening sign in form modal -->
-        <button type="button" id="sign-in-button" class="col btn btn-primary" data-bs-toggle="modal" data-bs-target="#sign-in-form-modal"> Sign In</button>
+          <!-- button for opening sign in form modal -->
+          <button type="button" id="sign-in-button" class="col-4 btn btn-primary" data-bs-toggle="modal" data-bs-target="#sign-in-form-modal"> Sign In</button>
 
-        <!-- button for opening password change form modal -->
-        <button type="button" id="change-pw-button" class="col btn btn-primary" data-bs-toggle="modal" data-bs-target="#pw-change-form-modal"> Change Password</button>
+          <!-- button for opening password change form modal -->
+          <button type="button" id="change-pw-button" class="col-4 btn btn-primary startHidden" data-bs-toggle="modal" data-bs-target="#pw-change-form-modal"> Change Password</button>
 
-        <button id="sign-out-button" class="col btn btn-primary">Sign out</button>
+          <button id="sign-out-button" class="col-4 btn btn-primary startHidden">Sign out</button>
+
+        </div>
       </nav>
               <h2>Welcome to Andrew's Tick Tac Toe</h2>
       <p id="message-field">Please Make an Account or Sign In to Continue</p>
-      <!-- start login vs sign up promt -->
+      <!-- start login vs sign up prompt -->
 
-      <!-- end of start promt -->
+      <!-- end of start prompt -->
 
       <!-- sign up form modal -->
       <div class="modal fade" id="sign-up-form-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
@@ -54,7 +57,7 @@
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-primary">Sign Up</button>
-                <button id="sign-up-flip-in-button" class="btn btn-primary" data-bs-target="#sign-in-form-modal" data-bs-toggle="modal"
+                <button id="sign-up-flip-in-button" class="btn btn-primary startHidden" data-bs-target="#sign-in-form-modal" data-bs-toggle="modal"
                   data-bs-dismiss="modal">sign in</button>
               </div>
             </form>
@@ -137,34 +140,21 @@
       </div>
         <!-- End of pop up message field modal-->
 
-      <button class="new-game-button">New Game</button>
-      <section id="game-board" class="">
-        <!-- <div id="player1Tray" class="container">
-          <div class="gamePiece X">X</div>
-          <div class="gamePiece X">X</div>
-          <div class="gamePiece X">X</div>
-          <div class="gamePiece X">X</div>
-          <div class="gamePiece X">X</div>
-        </div> -->
-        <div class="container">
-          <div class="row row-cols-3 h-100 w-100">
-            <div data-cell-index="0" class="col-4 h-100 cell border-bottom border-end border-dark"></div>
-            <div data-cell-index="1" class="col-4 h-100 cell border-top-0 border-black border-dark"></div>
-            <div data-cell-index="2" class="col-4 h-100 cell border-bottom border-start border-dark"></div>
-            <div data-cell-index="3" class="col-4 h-100 cell border-bottom border-top border-dark"></div>
-            <div data-cell-index="4" class="col-4 h-100 cell border border-dark"></div>
-            <div data-cell-index="5" class="col-4 h-100 cell border-bottom border-top border-dark"></div>
-            <div data-cell-index="6" class="col-4 h-100 cell border-top border-end border-dark"></div>
-            <div data-cell-index="7" class="col-4 h-100 cell border-bottom-0 border-dark"></div>
-            <div data-cell-index="8" class="col-4 h-100 cell border-top border-start border-dark"></div>
-          </div>
+      <button id="new-game-button-dash" class="new-game-button startHidden">New Game</button>
+
+      <section id="game-container" class="container">
+        <div id="game-board" class="row h-100 startHidden">
+          <div data-cell-index="0" class="col-4 cell" id="cell0"></div>
+          <div data-cell-index="1" class="col-4 cell" id="cell1"></div>
+          <div data-cell-index="2" class="col-4 cell" id="cell2"></div>
+          <div data-cell-index="3" class="col-4 cell" id="cell3"></div>
+          <div data-cell-index="4" class="col-4 cell" id="cell4"></div>
+          <div data-cell-index="5" class="col-4 cell" id="cell5"></div>
+          <div data-cell-index="6" class="col-4 cell" id="cell6"></div>
+          <div data-cell-index="7" class="col-4 cell" id="cell7"></div>
+          <div data-cell-index="8" class="col-4 cell" id="cell8"></div>
         </div>
-        <!-- <div id="player2Tray" class="container"> <div class="gamePiece X">X</div>
-        <div class="gamePiece X">O</div>
-        <div class="gamePiece X">O</div>
-        <div class="gamePiece X">O</div>
-        <div class="gamePiece X">O</div</div>
-      </section> -->
+      </section>
 
     </body>
 </html>

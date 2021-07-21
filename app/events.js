@@ -71,17 +71,21 @@ const onGameMove = function (event) {
   console.log(moveData)
 
   //  is game over ?
+
   if (store.game.over === true) {
     const error = 'GAME IS ALREADY OVER'
     ui.onGameMoveFailure(error)
     return
   }
+
   //  is space taken ?
   if (gameState[moveData.index] === 'x' || gameState[moveData.index] === 'o') {
     const error = 'Invalid Move, you cant move there'
     ui.onGameMoveFailure(error)
     return
   }
+  // place piece on board in user view
+  ui.onGameMovePlacePiece(moveData.index, moveValue)
   // update game state with new legal move
   gameState[moveData.index] = moveData.value
   if (
@@ -117,6 +121,11 @@ const onGameMove = function (event) {
     store.game.over = !store.game.over
     ui.onGameMoveWin(moveValue)
   }
+  //  if it's a legal move, and nobody won, and its the 8th play, it must be a tie
+  if (store.game._v === 8) {
+    store.game.over = !store.game.over
+    ui.onGameMoveTie()
+  }
   // reformat for api with proper game over check
   const game = {
     cell: {
@@ -125,10 +134,8 @@ const onGameMove = function (event) {
     },
     over: store.game.over
   }
-
-  api.gameMove(game)
-    .then(ui.onGameMoveSuccess)
-    .catch(ui.onGameMoveFailure)
+  console.log(store)
+  api.gameMove(game).then(ui.onGameMoveSuccess).catch(ui.onGameMoveFailure)
 }
 
 module.exports = {

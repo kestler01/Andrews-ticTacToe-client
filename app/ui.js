@@ -18,7 +18,7 @@ const onSignInSuccess = function (response) {
   $('#sign-in-button').hide()
   $('#sign-out-button').show()
   $('#change-pw-button').show()
-  $('#new-game-button').show()
+  $('#new-game-button-dash').css('display', 'block')
   $('#sign-in').trigger('reset')
   store.token = response.user.token
   store.scores = {
@@ -83,7 +83,6 @@ const onGameMoveWin = function (player) {
   const myMessageModal = new Modal($('#pop-up-message-field-modal'))
   console.log(myMessageModal)
   myMessageModal.show()
-
   if (player === 'x') {
     store.scores.player1 += 1
   } else {
@@ -91,6 +90,17 @@ const onGameMoveWin = function (player) {
   }
   $('#pop-up-message-field').text(player + ' WINS')
   console.log(store.scores)
+}
+const onGameMoveTie = function () {
+  jQuery.noConflict()
+  const myMessageModal = new Modal($('#pop-up-message-field-modal'))
+  console.log(myMessageModal)
+  myMessageModal.show()
+  $('#pop-up-message-field').text("Amazing, it's a tie")
+}
+const onGameMovePlacePiece = function (cell, moveValue) {
+  console.log(cell, moveValue)
+  $(`#cell${cell}`).text(moveValue)
 }
 module.exports = {
   onSignUpSuccess,
@@ -105,5 +115,7 @@ module.exports = {
   onNewGameFailure,
   onGameMoveSuccess,
   onGameMoveFailure,
-  onGameMoveWin
+  onGameMoveWin,
+  onGameMovePlacePiece,
+  onGameMoveTie
 }
