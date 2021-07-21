@@ -1,0 +1,88 @@
+@import '~bootstrap/scss/bootstrap';
+nav{
+border-bottom-left-radius: .5rem;
+border-bottom-right-radius: .5rem;
+padding: 1rem;
+padding-top:0;
+background: url('public/wooden-texture-seamless-basket-surface-wicker-straw-handcraft-weave-woven-vine-154103834.jpeg')
+
+}
+body{
+  background: url('public/Blue_Table_Cloth.jpeg');
+  background-size: stretch;
+}
+
+nav, div{justify-content: space-evenly;}
+h2{
+  
+  text-align: center;
+}
+
+p{
+  margin: auto;
+  text-align: center;
+}
+#new-game-button-dash{
+  margin:0 auto;
+}
+#game-container{
+  height: 75vh
+}
+#game-board{
+  margin:auto;
+  max-height: calc(100vh - 75px);
+  max-width: calc(100vh - 75px);
+  border: .5rem silver;
+
+
+}
+.cell{
+  border-right:3px solid silver;
+  border-bottom:3px solid silver;
+  min-height: calc(100%/3);
+  max-height: calc((100% width)/3);
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  font-size: calc((100vh - 75px)/10) ;
+
+  &:nth-child(3n) {
+  border-right:0;
+}
+  &:nth-last-child(-1n +3){ // the last 3 elements
+    border-bottom:0;
+  }
+  &:nth-child(2n){
+    background-color: black;
+    color: white
+  }
+  &:nth-child(2n+1){
+    background-color: ivory;
+  }
+}
+.startHidden{
+  display:none
+}
+// #change-pw-button{
+//   display:none
+// }
+// #sign-out-button{
+//   display:none
+// }
+// #new-game-button-dash{
+//   display:none
+// }
+// #game-board{
+//   display:none
+// }
+// #sign-up-flip-in-button{
+//   display:none
+// }
+// .gamePiece{
+//   margin: 0;
+//   padding:0;
+//   box-sizing: border-box;
+//   position: absolute;
+//   text-align:center;
+//   background-color: rgba(0,0,0,.1);
+// }
