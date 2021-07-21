@@ -53,10 +53,8 @@ const onGameMove = function (event) {
   } else {
     moveValue = 'o'
   }
-  console.log(moveValue, moveValue === 'x' || moveValue === 'o')
   // get clicked cell data
   const moveDataRaw = event.target
-  console.log(moveDataRaw)
 
   // format clicked cell data
   const moveData = {
@@ -67,8 +65,6 @@ const onGameMove = function (event) {
 
   // get game state array
   const gameState = store.game.cells
-  console.log(gameState)
-  console.log(moveData)
 
   //  is game over ?
 
@@ -122,7 +118,7 @@ const onGameMove = function (event) {
     ui.onGameMoveWin(moveValue)
   }
   //  if it's a legal move, and nobody won, and its the 8th play, it must be a tie
-  if (store.game._v === 8) {
+  if (store.game.__v === 8) {
     store.game.over = !store.game.over
     ui.onGameMoveTie()
   }
@@ -134,7 +130,7 @@ const onGameMove = function (event) {
     },
     over: store.game.over
   }
-  console.log(store)
+
   api.gameMove(game).then(ui.onGameMoveSuccess).catch(ui.onGameMoveFailure)
 }
 

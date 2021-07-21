@@ -1,13 +1,20 @@
 @import '~bootstrap/scss/bootstrap';
 nav{
-border:4px silver;
-padding: 1em;
+border-bottom-left-radius: .5rem;
+border-bottom-right-radius: .5rem;
+padding: 1rem;
 padding-top:0;
+background: url('public/wooden-texture-seamless-basket-surface-wicker-straw-handcraft-weave-woven-vine-154103834.jpeg')
 
 }
+body{
+  background: url('public/Blue_Table_Cloth.jpeg');
+  background-size: stretch;
+}
+
 nav, div{justify-content: space-evenly;}
 h2{
-  margin: auto;
+  
   text-align: center;
 }
 
@@ -25,6 +32,7 @@ p{
   margin:auto;
   max-height: calc(100vh - 75px);
   max-width: calc(100vh - 75px);
+  border: .5rem silver;
 
 
 }
@@ -32,6 +40,7 @@ p{
   border-right:3px solid silver;
   border-bottom:3px solid silver;
   min-height: calc(100%/3);
+  max-height: calc((100% width)/3);
   display:flex;
   justify-content: center;
   align-items:center;

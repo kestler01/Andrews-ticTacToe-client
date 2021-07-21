@@ -12,19 +12,19 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <nav class="container  bg-secondary">
+      <nav class="container shadow">
         <div class="row">
 
           <!-- button for opening account form modal -->
-          <button type="button" id="sign-up-button" class="col-4 btn btn-primary" data-bs-toggle="modal" data-bs-target="#sign-up-form-modal">Make an Account</button>
+          <button type="button" id="sign-up-button" class="col-4 btn btn-info" data-bs-toggle="modal" data-bs-target="#sign-up-form-modal">Make an Account</button>
 
           <!-- button for opening sign in form modal -->
-          <button type="button" id="sign-in-button" class="col-4 btn btn-primary" data-bs-toggle="modal" data-bs-target="#sign-in-form-modal"> Sign In</button>
+          <button type="button" id="sign-in-button" class="col-4 btn btn-info" data-bs-toggle="modal" data-bs-target="#sign-in-form-modal"> Sign In</button>
 
           <!-- button for opening password change form modal -->
-          <button type="button" id="change-pw-button" class="col-4 btn btn-primary startHidden" data-bs-toggle="modal" data-bs-target="#pw-change-form-modal"> Change Password</button>
+          <button type="button" id="change-pw-button" class="col-4 btn btn-info startHidden" data-bs-toggle="modal" data-bs-target="#pw-change-form-modal"> Change Password</button>
 
-          <button id="sign-out-button" class="col-4 btn btn-primary startHidden">Sign out</button>
+          <button id="sign-out-button" class="col-4 btn btn-info startHidden">Sign out</button>
 
         </div>
       </nav>
@@ -56,8 +56,8 @@
                 </div>
               </div>
               <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Sign Up</button>
-                <button id="sign-up-flip-in-button" class="btn btn-primary startHidden" data-bs-target="#sign-in-form-modal" data-bs-toggle="modal"
+                <button type="submit" class="btn btn-info">Sign Up</button>
+                <button id="sign-up-flip-in-button" class="btn btn-info startHidden" data-bs-target="#sign-in-form-modal" data-bs-toggle="modal"
                   data-bs-dismiss="modal">sign in</button>
               </div>
             </form>
@@ -86,7 +86,7 @@
                 </div>
               </div>
               <div class="modal-footer" >
-                <button type="submit" class="btn btn-primary" >Sign In</button>
+                <button type="submit" class="btn btn-info" >Sign In</button>
               </div>
             </form>
           </div>
@@ -112,7 +112,7 @@
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-               <button type="submit" class="btn btn-primary">Change Password</button>
+               <button type="submit" class="btn btn-info">Change Password</button>
               </div>
             </form>
           </div>
@@ -142,7 +142,7 @@
 
       <button id="new-game-button-dash" class="new-game-button startHidden">New Game</button>
 
-      <section id="game-container" class="container">
+      <section id="game-container" class="container shadow">
         <div id="game-board" class="row h-100 startHidden">
           <div data-cell-index="0" class="col-4 cell" id="cell0"></div>
           <div data-cell-index="1" class="col-4 cell" id="cell1"></div>
