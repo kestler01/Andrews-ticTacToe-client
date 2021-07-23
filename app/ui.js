@@ -52,7 +52,7 @@ const onSignOutSuccess = function () {
   $('#sign-out-button').hide()
   $('#change-pw-button').hide()
   $('#new-game-button').hide()
-  $('#game-board').hide()
+  $('#game-board').addClass('startHidden')
 }
 
 const onSignOutFailure = function () {

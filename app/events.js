@@ -59,8 +59,7 @@ const onGameMove = function (event) {
   // format clicked cell data
   const moveData = {
     index: $(moveDataRaw).attr('data-cell-index'),
-    value: moveValue,
-    over: false
+    value: moveValue
   }
 
   // get game state array
@@ -117,7 +116,7 @@ const onGameMove = function (event) {
     store.game.over = !store.game.over
     ui.onGameMoveWin(moveValue)
   }
-  //  if it's a legal move, and nobody won, and its the 8th play, it must be a tie
+  //  if it's a legal move, and nobody won, and its the 9th play, it must be a tie
   if (store.game.__v === 8) {
     store.game.over = !store.game.over
     ui.onGameMoveTie()
