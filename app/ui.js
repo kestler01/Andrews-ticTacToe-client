@@ -4,6 +4,7 @@ const store = require('./store.js')
 const Modal = require('bootstrap').Modal
 
 const onSignUpSuccess = function () {
+  $('#sign-up').trigger('reset')
   $('#sign-up-form-message').text('sign up successful, log in to continue')
   $('#sign-up-flip-in-button').show()
 }
